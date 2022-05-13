@@ -1,6 +1,6 @@
 <script type="text/discourse-plugin" version="0.8.18">
 
-    if(api.getCurrentUser().trust_level >= 2) {
+    if(api.getCurrentUser().trust_level >= settings.min_trust_level_for_needs_love) {
     
         // Show the "Left Behind" link
         function __customization_addDays(date_, days) {
@@ -11,11 +11,11 @@
         //https://stackoverflow.com/questions/563406/add-days-to-javascript-date
         var date = new Date();
         
-        var twoDaysAgo = __customization_addDays(date, -3);
+        var twoDaysAgo = __customization_addDays(date, - settings.min_days_needs_love);
         //https://stackoverflow.com/questions/23593052/format-javascript-date-as-yyyy-mm-dd
         var twoDaysAgoString = twoDaysAgo.toISOString().split('T')[0]
     
-        var monthAgo = __customization_addDays(date, -28);
+        var monthAgo = __customization_addDays(date, - settings.max_days_needs_love);
         var monthAgoString = monthAgo.toISOString().split('T')[0]
     
         
@@ -30,7 +30,7 @@
         });
           
         // More aggresive - a small banner on first page load
-        if(api.getCurrentUser().trust_level >= 3) {
+        if(api.getCurrentUser().trust_level >= settings.min_trust_level_for_needs_love_banner) {
     /*
             // I can get the number of left-behind topics, but it is quite slow...
             var left_behind_title = "topics that didn't get any attention";
@@ -70,7 +70,8 @@
                     const ajax = require('discourse/lib/ajax').ajax;
                     ajax("/search.json" + search_query).then (function(result){
                         var numPosts = result.posts.length;
-                        if(numPosts > 5 || (isCategory && numPosts > 2)) {
+                        if(numPosts > settings.min_needs_love_posts_for_banner || 
+                            (isCategory && numPosts > settings.min_needs_love_posts_for_banner_category)) {
                             $('#left-behind-msg').addClass("active").html("<a class='alert alert-info clickable' href='" + left_behind_url + "'>Click to see " + numPosts + " topics that are left behind and need some love.</a>");
                         }
                     });

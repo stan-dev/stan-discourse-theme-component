@@ -1,0 +1,36 @@
+min_trust_level_for_needs_love:
+    default: 2
+    type: integer
+    min: 0
+    max: 4
+    description: "Trust level needed to see the 'Needs love' menu item"
+
+min_trust_level_for_needs_love_banner:
+    default: 3
+    min: 0
+    max: 4
+    type: integer
+    description: "Trust level needed to see the red banner when there are too many 'Needs love' topics"
+
+min_needs_love_posts_for_banner:
+    default: 5
+    type: integer
+    min: 1
+    description: "How many 'Needs love' posts will trigger a banner"
+
+min_needs_love_posts_for_banner_category:
+    default: 2
+    type: integer
+    min: 1
+    description: "How many 'Needs love' in category view posts will trigger a banner within a category"
+
+
+min_days_needs_love:
+    default: 3      
+    type: integer
+    description: "How old need topics be to count as 'Needs love'"
+
+max_days_needs_love:
+   default: 28      
+   type: integer
+   description: "Maximum age of topics to count as 'Needs love'"
