@@ -1,0 +1,12 @@
+{
+    "name": "My Theme",
+    "component": true,
+    "license_url": null,
+    "about_url": "https://github.com/stan-dev/stan-discourse-theme-component",
+    "authors": "Martin Modrák",
+    "theme_version": "1.0",
+    "minimum_discourse_version": null, 
+    "maximum_discourse_version": null,
+    "assets": {   },
+    "color_schemes": {   }
+  }
