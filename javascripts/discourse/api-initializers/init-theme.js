@@ -48,5 +48,6 @@ export default apiInitializer((api) => {
                 }
             });
         }
-    }});
+    }
+});
 
