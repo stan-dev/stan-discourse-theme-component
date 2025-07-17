@@ -1,7 +1,14 @@
-<script type="text/x-handlebars" data-template-name="/connectors/composer-after-save-or-cancel/private-message-warning">
+import { apiInitializer } from "discourse/lib/api";
+
+export default apiInitializer("1.8.0", (api) => {
+  api.renderInOutlet(
+    "composer-after-save-or-cancel",
+    <template>
     {{#if model.privateMessage}}
       <span id="private-message-warning"><a href="https://discourse.mc-stan.org/t/how-private-are-private-messages/18372">
       How private are personal messages?
       </a></span>
     {{/if}}
-</script>
+    </template>
+  );
+});
