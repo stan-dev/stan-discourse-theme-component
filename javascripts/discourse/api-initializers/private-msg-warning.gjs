@@ -4,6 +4,7 @@ export default apiInitializer("1.8.0", (api) => {
   api.renderInOutlet(
     "composer-after-save-or-cancel",
     <template>
+     <span id="test"></span>
     {{#if this.model.privateMessage}}
       <span id="private-message-warning"><a href="https://discourse.mc-stan.org/t/how-private-are-private-messages/18372">
       How private are personal messages?
